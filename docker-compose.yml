@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  unbound:
+    build:
+      context: ./1.24.2
+      dockerfile: Dockerfile
+      platforms:
+        - linux/arm64
+        - linux/amd64
+    image: unbound:multiarch-1.24.2
+    container_name: unbound-arm64-test
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    restart: unless-stopped
+    environment:
+      - TERM=xterm
+    healthcheck:
+      test: ["CMD", "drill", "@127.0.0.1", "cloudflare.com"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 10s

@@ -1,6 +1,14 @@
 FROM debian:bookworm AS openssl
 LABEL maintainer="Matthew Vance"
 
+# Architecture detection
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "arm64" ]; then \
+        echo "ARM64 architecture detected"; \
+    else \
+        echo "x86_64 architecture detected"; \
+    fi
+
 ENV VERSION_OPENSSL=openssl-3.3.2 \
     SHA256_OPENSSL=2e8a40b01979afe8be0bbfb3de5dc1c6709fedb46d6c89c10da114ab5fc3d281 \
     SOURCE_OPENSSL=https://www.openssl.org/source/ \
@@ -42,7 +50,7 @@ RUN set -e -x && \
       no-weak-ssl-ciphers \
       no-ssl3 \
       no-shared \
-      enable-ec_nistp_64_gcc_128 \
+      $(if [ "$(dpkg --print-architecture)" = "arm64" ]; then echo ""; else echo "enable-ec_nistp_64_gcc_128"; fi) \
       -DOPENSSL_NO_HEARTBEATS \
       -fstack-protector-strong && \
     make depend && \
@@ -57,6 +65,14 @@ RUN set -e -x && \
 
 FROM debian:bookworm AS unbound
 LABEL maintainer="Matthew Vance"
+
+# Architecture detection
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "arm64" ]; then \
+        echo "ARM64 architecture detected"; \
+    else \
+        echo "x86_64 architecture detected"; \
+    fi
 
 ENV NAME=unbound \
     UNBOUND_VERSION=1.22.0 \
@@ -111,6 +127,14 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
 
 FROM debian:bookworm
 LABEL maintainer="Matthew Vance"
+
+# Architecture detection
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "arm64" ]; then \
+        echo "ARM64 architecture detected"; \
+    else \
+        echo "x86_64 architecture detected"; \
+    fi
 
 ENV NAME=unbound \
     SUMMARY="${NAME} is a validating, recursive, and caching DNS resolver." \

@@ -1,23 +1,13 @@
 # Unbound DNS Server Docker Image
 
 ## Supported tags and respective `Dockerfile` links
-- [`1.22.0`, `latest` (*1.22.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.22.0)
+- [`1.24.2`, `latest` (*1.24.2/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.24.2)
+- [`1.22.0`, (*1.22.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.22.0)
 - [`1.21.1`, (*1.21.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.21.1)
 - [`1.21.0`, (*1.21.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.21.0)
 - [`1.20.0`, (*1.20.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.20.0)
-- [`1.19.3`, (*1.19.3/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.19.3)
-- [`1.19.2`, (*1.19.2/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.19.2)
-- [`1.19.1`, (*1.19.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.19.1)
-- [`1.19.0`, (*1.19.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.19.0)
-- [`1.18.0`, (*1.18.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.18.0)
-- [`1.17.1`, (*1.17.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.17.1)
-- [`1.17.0`, (*1.17.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.17.0)
-- [`1.16.3`, (*1.16.3/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.16.3)
-- [`1.16.2`, (*1.16.2/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.16.2)
-- [`1.16.1`, (*1.16.1/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.16.1)
-- [`1.16.0`, (*1.16.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.16.0)
-- [`1.15.0`, (*1.15.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.15.0)
-- [`1.14.0`, (*1.14.0/Dockerfile*)](https://github.com/MatthewVance/unbound-docker/tree/master/1.14.0)
+
+> **Security Notice**: Versions older than 1.20.0 have been removed due to multiple security vulnerabilities (CVE-2024-8508, CVE-2024-33655, CVE-2025-5994, CVE-2025-11411). Please use version 1.20.0 or newer.
 
 ## What is Unbound?
 
